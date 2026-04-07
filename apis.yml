@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: united-states-coast-guard:united-states-coast-guard
     name: United States Coast Guard
-    tags:
-      - API
+    tags: []
     humanURL: >-
       https://www.dco.uscg.mil/Our-Organization/Assistant-Commandant-for-Prevention-Policy...
     properties:
