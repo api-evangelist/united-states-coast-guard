@@ -28,16 +28,11 @@ created: '2024-12-03'
 modified: '2026-03-16'
 position: Consuming
 description: >-
-  The United States Coast Guard is a branch of the military responsible for
-  enforcing maritime laws, protecting the nation's waterways and coastlines, and
-  ensuring the safety and security of seafarers. They conduct search and rescue
-  operations, respond to environmental disasters, combat illegal drug
-  trafficking and immigration, and conduct security patrols to thwart terrorism
-  threats. The Coast Guard also plays a crucial role in maintaining navigational
-  aids, regulating maritime commerce, and conducting icebreaking operations in
-  the polar regions. In addition to their law enforcement and military duties,
-  the Coast Guard also serves as a humanitarian organization, providing disaster
-  relief and humanitarian assistance both domestically and internationally.
+  The United States Coast Guard is a branch of the military responsible for enforcing
+  maritime laws, protecting the nation's waterways and coastlines, and ensuring the
+  safety and security of seafarers. They conduct search and rescue operations, respond
+  to environmental disasters, combat illegal drug trafficking and immigration, and
+  conduct security patrols to thwart terrorism threats.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
