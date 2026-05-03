@@ -1,0 +1,79 @@
+{
+  "name": "CGMIX Vessel",
+  "description": "Data structure for a U.S. Coast Guard CGMIX documented vessel record",
+  "fields": [
+    {
+      "name": "vesselId",
+      "type": "string",
+      "description": "Official vessel number",
+      "required": true
+    },
+    {
+      "name": "vesselName",
+      "type": "string",
+      "description": "Registered vessel name",
+      "required": true
+    },
+    {
+      "name": "flag",
+      "type": "string",
+      "description": "Flag state",
+      "required": true
+    },
+    {
+      "name": "hullIdentificationNumber",
+      "type": "string",
+      "description": "Hull Identification Number (HIN)"
+    },
+    {
+      "name": "vesselType",
+      "type": "string",
+      "description": "Classification type (Cargo, Tanker, Passenger, etc.)"
+    },
+    {
+      "name": "grossTons",
+      "type": "number",
+      "description": "Gross tonnage"
+    },
+    {
+      "name": "netTons",
+      "type": "number",
+      "description": "Net tonnage"
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "description": "Overall length in feet"
+    },
+    {
+      "name": "breadth",
+      "type": "number",
+      "description": "Beam width in feet"
+    },
+    {
+      "name": "depth",
+      "type": "number",
+      "description": "Hull depth in feet"
+    },
+    {
+      "name": "propulsionType",
+      "type": "string",
+      "description": "Primary propulsion method"
+    },
+    {
+      "name": "serviceType",
+      "type": "string",
+      "description": "Trade route classification"
+    },
+    {
+      "name": "ownerName",
+      "type": "string",
+      "description": "Registered owner name"
+    },
+    {
+      "name": "homePort",
+      "type": "string",
+      "description": "Documented home port"
+    }
+  ]
+}

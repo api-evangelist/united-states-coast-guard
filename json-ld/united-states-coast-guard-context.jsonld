@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "uscg": "https://cgmix.uscg.mil/ontology/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "gov": "https://www.w3.org/ns/org#",
+
+    "Vessel": "uscg:Vessel",
+    "VesselCase": "uscg:VesselCase",
+    "EquipmentCertification": "uscg:EquipmentCertification",
+    "IncidentReport": "uscg:IncidentReport",
+    "GovernmentOrganization": "GovernmentOrganization",
+
+    "vesselId": {
+      "@id": "uscg:officialNumber",
+      "@type": "@id"
+    },
+    "vesselName": {
+      "@id": "schema:name"
+    },
+    "flag": {
+      "@id": "uscg:flagState"
+    },
+    "hullIdentificationNumber": {
+      "@id": "uscg:hin"
+    },
+    "vesselType": {
+      "@id": "uscg:vesselType"
+    },
+    "grossTons": {
+      "@id": "uscg:grossTonnage",
+      "@type": "schema:Number"
+    },
+    "netTons": {
+      "@id": "uscg:netTonnage",
+      "@type": "schema:Number"
+    },
+    "length": {
+      "@id": "schema:depth",
+      "@type": "schema:Distance"
+    },
+    "ownerName": {
+      "@id": "schema:ownershipFundingInfo"
+    },
+    "homePort": {
+      "@id": "uscg:homePort"
+    },
+    "inspectionDate": {
+      "@id": "schema:datePublished",
+      "@type": "schema:Date"
+    },
+    "port": {
+      "@id": "schema:location"
+    },
+    "examType": {
+      "@id": "uscg:examinationType"
+    },
+    "result": {
+      "@id": "schema:result"
+    },
+    "deficiencyCount": {
+      "@id": "uscg:deficiencyCount",
+      "@type": "schema:Integer"
+    },
+    "equipmentId": {
+      "@id": "uscg:equipmentApprovalNumber"
+    },
+    "manufacturer": {
+      "@id": "schema:manufacturer"
+    },
+    "approvalStatus": {
+      "@id": "schema:validFrom"
+    },
+    "description": {
+      "@id": "dcterms:description"
+    }
+  }
+}

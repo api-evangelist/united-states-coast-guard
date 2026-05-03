@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/main/json-schema/cgmix-vessel-case-schema.json",
+  "title": "CGMIX Vessel Inspection Case",
+  "description": "Schema for a Port State Control inspection case record from the CGMIX Maritime Information Exchange",
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "type": "string",
+      "description": "Unique identifier for the Port State Control inspection case"
+    },
+    "vesselId": {
+      "type": "string",
+      "description": "Official vessel number of the inspected vessel"
+    },
+    "vesselName": {
+      "type": "string",
+      "description": "Name of the vessel at time of inspection"
+    },
+    "inspectionDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the Port State Control examination was conducted"
+    },
+    "port": {
+      "type": "string",
+      "description": "Port or waterway where the inspection was conducted"
+    },
+    "examType": {
+      "type": "string",
+      "description": "Type of examination performed",
+      "enum": [
+        "Port State Control Examination",
+        "Annual Examination",
+        "Spot Check",
+        "Follow-up Inspection",
+        "Initial Inspection"
+      ]
+    },
+    "result": {
+      "type": "string",
+      "description": "Outcome of the inspection",
+      "enum": [
+        "Satisfactory",
+        "Released with Deficiencies",
+        "Detained",
+        "Expulsion"
+      ]
+    },
+    "deficiencyCount": {
+      "type": "integer",
+      "description": "Number of deficiencies noted during the inspection",
+      "minimum": 0
+    },
+    "operationalControls": {
+      "type": "array",
+      "description": "Operational controls imposed as a result of the inspection",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inspector": {
+      "type": "string",
+      "description": "USCG sector or activity that conducted the inspection"
+    },
+    "nextExamDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Scheduled date for the next required examination"
+    }
+  },
+  "required": ["caseId", "vesselId", "inspectionDate", "examType", "result"]
+}

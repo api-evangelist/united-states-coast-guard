@@ -1,0 +1,15 @@
+{
+  "operationId": "getEquipmentDetails",
+  "request": {
+    "method": "GET",
+    "url": "https://cgmix.uscg.mil/xml/EquipmentData.asmx/getEquipmentDetails",
+    "parameters": {
+      "EquipmentId": "160.002/3"
+    }
+  },
+  "response": {
+    "status": 200,
+    "contentType": "text/xml",
+    "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?><EquipmentDetail><EquipmentId>160.002/3</EquipmentId><Manufacturer>Acme Marine Safety Inc.</Manufacturer><ModelNumber>LifeRing-Pro-30</ModelNumber><ApprovalStatus>Approved</ApprovalStatus><ApprovalDate>2022-04-15</ApprovalDate><EquipmentType>Life Saving Equipment</EquipmentType><Description>30-inch life ring buoy approved per 46 CFR 160.002. Meets SOLAS requirements for international voyages.</Description></EquipmentDetail>"
+  }
+}

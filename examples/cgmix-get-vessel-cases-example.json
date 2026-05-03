@@ -1,0 +1,15 @@
+{
+  "operationId": "getVesselCases",
+  "request": {
+    "method": "GET",
+    "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselCasesXMLString",
+    "parameters": {
+      "VesselID": "1234567"
+    }
+  },
+  "response": {
+    "status": 200,
+    "contentType": "text/xml",
+    "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?><VesselCases><Case><CaseId>PSC-2024-00891</CaseId><VesselId>1234567</VesselId><InspectionDate>2024-08-12</InspectionDate><Port>Port of Baltimore</Port><ExamType>Port State Control Examination</ExamType><Result>Released with Deficiencies</Result><DeficiencyCount>3</DeficiencyCount></Case><Case><CaseId>PSC-2023-01204</CaseId><VesselId>1234567</VesselId><InspectionDate>2023-03-05</InspectionDate><Port>Port of Houston</Port><ExamType>Annual Examination</ExamType><Result>Satisfactory</Result><DeficiencyCount>0</DeficiencyCount></Case></VesselCases>"
+  }
+}

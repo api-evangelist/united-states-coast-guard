@@ -1,0 +1,340 @@
+openapi: 3.0.3
+info:
+  title: CGMIX Maritime Information Exchange API
+  description: >-
+    The Coast Guard Maritime Information Exchange (CGMIX) provides access to
+    U.S. Coast Guard maritime information including vessel documentation,
+    Port State Information Exchange (PSIX) vessel data, equipment certification
+    listings, and Incident Investigation Reports (IIR). Data originates from
+    the Marine Information for Safety and Law Enforcement (MISLE) system and
+    is updated weekly.
+  version: 1.0.0
+  contact:
+    name: U.S. Coast Guard CGMIX
+    url: https://cgmix.uscg.mil/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+  - url: https://cgmix.uscg.mil
+    description: CGMIX Production Server
+tags:
+  - name: Vessel Documentation
+    description: National Vessel Documentation Center vessel records
+  - name: Port State Information
+    description: Port State Information Exchange vessel safety data
+  - name: Equipment
+    description: USCG approved equipment certification data
+  - name: Incident Reports
+    description: Incident Investigation Report data
+paths:
+  /VDS/SearchAndReturn/Search.aspx:
+    get:
+      operationId: searchVesselDocumentation
+      summary: Search Vessel Documentation Status
+      description: >-
+        Search the National Vessel Documentation Center (NVDC) for documented
+        vessels by vessel name, official number, or hull identification number.
+      tags:
+        - Vessel Documentation
+      parameters:
+        - name: vsnm
+          in: query
+          description: Vessel name (partial match supported)
+          required: false
+          schema:
+            type: string
+          example: SEA EAGLE
+        - name: offn
+          in: query
+          description: Official number assigned by USCG
+          required: false
+          schema:
+            type: string
+          example: '1234567'
+        - name: hin
+          in: query
+          description: Hull Identification Number
+          required: false
+          schema:
+            type: string
+          example: ABC12345D101
+      responses:
+        '200':
+          description: Vessel documentation search results
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /xml/PSIXData.asmx/getVesselSummaryXMLString:
+    get:
+      operationId: getVesselSummary
+      summary: Get Vessel Summary
+      description: >-
+        Retrieve a summary of vessel information from the Port State Information
+        Exchange (PSIX) system by official vessel number.
+      tags:
+        - Port State Information
+      parameters:
+        - name: VesselID
+          in: query
+          description: Official vessel number
+          required: true
+          schema:
+            type: string
+          example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel summary data
+          content:
+            text/xml:
+              schema:
+                type: string
+
+  /xml/PSIXData.asmx/getVesselParticularsXMLString:
+    get:
+      operationId: getVesselParticulars
+      summary: Get Vessel Particulars
+      description: >-
+        Retrieve detailed vessel particulars including dimensions, tonnage, and
+        technical specifications.
+      tags:
+        - Port State Information
+      parameters:
+        - name: VesselID
+          in: query
+          description: Official vessel number
+          required: true
+          schema:
+            type: string
+          example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel particulars
+          content:
+            text/xml:
+              schema:
+                type: string
+
+  /xml/PSIXData.asmx/getVesselCasesXMLString:
+    get:
+      operationId: getVesselCases
+      summary: Get Vessel Cases
+      description: >-
+        Retrieve Port State Control inspection cases associated with a vessel,
+        including deficiencies and operational controls.
+      tags:
+        - Port State Information
+      parameters:
+        - name: VesselID
+          in: query
+          description: Official vessel number
+          required: true
+          schema:
+            type: string
+          example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel inspection cases
+          content:
+            text/xml:
+              schema:
+                type: string
+
+  /xml/PSIXData.asmx/getVesselDeficienciesXMLString:
+    get:
+      operationId: getVesselDeficiencies
+      summary: Get Vessel Deficiencies
+      description: >-
+        Retrieve documented deficiencies found during Port State Control
+        inspections for a specific vessel.
+      tags:
+        - Port State Information
+      parameters:
+        - name: VesselID
+          in: query
+          description: Official vessel number
+          required: true
+          schema:
+            type: string
+          example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel deficiency records
+          content:
+            text/xml:
+              schema:
+                type: string
+
+  /xml/PSIXData.asmx/getVesselDocumentsXMLString:
+    get:
+      operationId: getVesselDocuments
+      summary: Get Vessel Documents
+      description: >-
+        Retrieve a list of certificates and documents associated with a vessel,
+        including statutory certificates, endorsements, and permits.
+      tags:
+        - Port State Information
+      parameters:
+        - name: VesselID
+          in: query
+          description: Official vessel number
+          required: true
+          schema:
+            type: string
+          example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel certificates and documents
+          content:
+            text/xml:
+              schema:
+                type: string
+
+  /xml/EquipmentData.asmx/getEquipmentDetails:
+    get:
+      operationId: getEquipmentDetails
+      summary: Get Equipment Certification Details
+      description: >-
+        Retrieve details about USCG-approved marine equipment by equipment ID,
+        including approval status, manufacturer, model, and certification scope.
+      tags:
+        - Equipment
+      parameters:
+        - name: EquipmentId
+          in: query
+          description: USCG equipment certification ID
+          required: true
+          schema:
+            type: string
+          example: '160.002/3'
+      responses:
+        '200':
+          description: XML document containing equipment certification details
+          content:
+            text/xml:
+              schema:
+                type: string
+
+  /xml/IIRData.asmx/getIIRReferralForEnforcementActionXMLString:
+    get:
+      operationId: getIncidentInvestigationReferral
+      summary: Get Incident Investigation Referral
+      description: >-
+        Retrieve Incident Investigation Report (IIR) referral for enforcement
+        action data by activity ID from marine casualty investigations.
+      tags:
+        - Incident Reports
+      parameters:
+        - name: ActivityId
+          in: query
+          description: Marine casualty investigation activity identifier
+          required: true
+          schema:
+            type: string
+          example: '12345'
+      responses:
+        '200':
+          description: XML document containing incident investigation referral data
+          content:
+            text/xml:
+              schema:
+                type: string
+
+components:
+  schemas:
+    VesselSummary:
+      type: object
+      description: Summary information about a documented vessel
+      properties:
+        vesselId:
+          type: string
+          description: Official vessel number
+        vesselName:
+          type: string
+          description: Name of the vessel
+        flag:
+          type: string
+          description: Flag state of the vessel
+        hullIdentificationNumber:
+          type: string
+          description: Hull Identification Number (HIN)
+        vesselType:
+          type: string
+          description: Type of vessel
+        grossTons:
+          type: number
+          description: Gross tonnage of the vessel
+        netTons:
+          type: number
+          description: Net tonnage of the vessel
+        length:
+          type: number
+          description: Overall length in feet
+        breadth:
+          type: number
+          description: Beam width in feet
+        depth:
+          type: number
+          description: Hull depth in feet
+        propulsionType:
+          type: string
+          description: Method of propulsion
+        serviceType:
+          type: string
+          description: Service classification of the vessel
+
+    VesselCase:
+      type: object
+      description: Port State Control inspection case record
+      properties:
+        caseId:
+          type: string
+          description: Unique case identifier
+        vesselId:
+          type: string
+          description: Official vessel number
+        inspectionDate:
+          type: string
+          format: date
+          description: Date of Port State Control inspection
+        port:
+          type: string
+          description: Port where inspection was conducted
+        examType:
+          type: string
+          description: Type of examination conducted
+        result:
+          type: string
+          description: Outcome of the inspection
+        deficiencyCount:
+          type: integer
+          description: Number of deficiencies noted
+
+    EquipmentDetail:
+      type: object
+      description: USCG approved equipment certification record
+      properties:
+        equipmentId:
+          type: string
+          description: USCG equipment certification ID
+        manufacturer:
+          type: string
+          description: Equipment manufacturer name
+        modelNumber:
+          type: string
+          description: Model number or designation
+        approvalStatus:
+          type: string
+          description: Current approval status
+        approvalDate:
+          type: string
+          format: date
+          description: Date of approval
+        equipmentType:
+          type: string
+          description: Category of marine equipment
+        description:
+          type: string
+          description: Description of equipment and applicable standards

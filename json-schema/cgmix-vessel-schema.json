@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/main/json-schema/cgmix-vessel-schema.json",
+  "title": "CGMIX Vessel",
+  "description": "Schema for a U.S. Coast Guard documented vessel record from the CGMIX Maritime Information Exchange",
+  "type": "object",
+  "properties": {
+    "vesselId": {
+      "type": "string",
+      "description": "Official vessel number assigned by the USCG National Vessel Documentation Center"
+    },
+    "vesselName": {
+      "type": "string",
+      "description": "Registered name of the vessel"
+    },
+    "flag": {
+      "type": "string",
+      "description": "Flag state under which the vessel is registered",
+      "example": "USA"
+    },
+    "hullIdentificationNumber": {
+      "type": "string",
+      "description": "Hull Identification Number (HIN) assigned by manufacturer"
+    },
+    "vesselType": {
+      "type": "string",
+      "description": "Classification type of the vessel",
+      "enum": [
+        "Cargo",
+        "Tanker",
+        "Passenger",
+        "Fishing",
+        "Tug",
+        "Barge",
+        "Pleasure",
+        "Research",
+        "Other"
+      ]
+    },
+    "grossTons": {
+      "type": "number",
+      "description": "Gross tonnage of the vessel",
+      "minimum": 0
+    },
+    "netTons": {
+      "type": "number",
+      "description": "Net tonnage of the vessel",
+      "minimum": 0
+    },
+    "length": {
+      "type": "number",
+      "description": "Overall length of the vessel in feet",
+      "minimum": 0
+    },
+    "breadth": {
+      "type": "number",
+      "description": "Beam (breadth) of the vessel in feet",
+      "minimum": 0
+    },
+    "depth": {
+      "type": "number",
+      "description": "Hull depth of the vessel in feet",
+      "minimum": 0
+    },
+    "draft": {
+      "type": "number",
+      "description": "Maximum operating draft in feet",
+      "minimum": 0
+    },
+    "propulsionType": {
+      "type": "string",
+      "description": "Primary method of propulsion",
+      "enum": [
+        "Diesel",
+        "Steam",
+        "Gas Turbine",
+        "Electric",
+        "Sail",
+        "Unpowered"
+      ]
+    },
+    "serviceType": {
+      "type": "string",
+      "description": "Service route classification",
+      "enum": [
+        "Coastwise",
+        "Great Lakes",
+        "International",
+        "Inland",
+        "Fishing"
+      ]
+    },
+    "endorsements": {
+      "type": "array",
+      "description": "List of trade endorsements on vessel documentation",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ownerName": {
+      "type": "string",
+      "description": "Name of the registered vessel owner"
+    },
+    "homePort": {
+      "type": "string",
+      "description": "Home port as recorded on vessel documentation"
+    }
+  },
+  "required": ["vesselId", "vesselName", "flag"]
+}

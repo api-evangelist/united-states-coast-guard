@@ -1,0 +1,70 @@
+rules:
+  cgmix-operation-ids-required:
+    description: All operations must have operationIds for client generation.
+    message: Operation must have an operationId.
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+    severity: error
+
+  cgmix-vessel-id-required:
+    description: PSIX endpoints require VesselID parameter.
+    message: >-
+      PSIX vessel operations must include VesselID as a required query
+      parameter.
+    given: "$.paths[?(@property =~ /PSIXData/)][*].parameters[?(@.name == 'VesselID')]"
+    then:
+      field: required
+      function: truthy
+    severity: error
+
+  cgmix-xml-response-type:
+    description: CGMIX APIs return XML responses.
+    message: CGMIX operations should document text/xml response content type.
+    given: "$.paths[*][get,post].responses[*].content"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            text/xml:
+              type: object
+    severity: warn
+
+  cgmix-operations-have-tags:
+    description: All operations should have tags for grouping.
+    message: Operation must include at least one tag.
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+    severity: warn
+
+  cgmix-parameters-have-descriptions:
+    description: All parameters should include descriptions.
+    message: Parameter must have a description.
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      field: description
+      function: truthy
+    severity: warn
+
+  cgmix-info-contact:
+    description: API info should include contact details.
+    message: API info block must contain a contact object.
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+    severity: warn
+
+  cgmix-responses-documented:
+    description: All operations should document at least a 200 response.
+    message: Operation must document a 200 success response.
+    given: "$.paths[*][get,post,put,delete,patch].responses"
+    then:
+      field: "200"
+      function: truthy
+    severity: error

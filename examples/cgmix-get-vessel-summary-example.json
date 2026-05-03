@@ -1,0 +1,15 @@
+{
+  "operationId": "getVesselSummary",
+  "request": {
+    "method": "GET",
+    "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselSummaryXMLString",
+    "parameters": {
+      "VesselID": "1234567"
+    }
+  },
+  "response": {
+    "status": 200,
+    "contentType": "text/xml",
+    "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?><VesselSummary><VesselID>1234567</VesselID><VesselName>SEA EAGLE</VesselName><Flag>USA</Flag><HIN>ABC12345D101</HIN><VesselType>Cargo</VesselType><GrossTons>5200</GrossTons><NetTons>3100</NetTons><Length>320</Length><Breadth>54</Breadth><Depth>28</Depth><PropulsionType>Diesel</PropulsionType><ServiceType>Coastwise</ServiceType></VesselSummary>"
+  }
+}
