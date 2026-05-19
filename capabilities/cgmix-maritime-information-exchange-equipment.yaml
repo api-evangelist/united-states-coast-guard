@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CGMIX Maritime Information Exchange API — Equipment
+  description: 'CGMIX Maritime Information Exchange API — Equipment. 1 operations. Lead operation: Get Equipment Certification
+    Details. Self-contained Naftiko capability covering one United States Coast Guard business surface.'
+  tags:
+  - United States Coast Guard
+  - Equipment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UNITED_STATES_COAST_GUARD_API_KEY: UNITED_STATES_COAST_GUARD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cgmix-maritime-information-exchange-equipment
+    baseUri: https://cgmix.uscg.mil
+    description: CGMIX Maritime Information Exchange API — Equipment business capability. Self-contained, no shared references.
+    resources:
+    - name: xml-EquipmentData.asmx-getEquipmentDetails
+      path: /xml/EquipmentData.asmx/getEquipmentDetails
+      operations:
+      - name: getequipmentdetails
+        method: GET
+        description: Get Equipment Certification Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: EquipmentId
+          in: query
+          type: string
+          description: USCG equipment certification ID
+          required: true
+  exposes:
+  - type: rest
+    namespace: cgmix-maritime-information-exchange-equipment-rest
+    port: 8080
+    description: REST adapter for CGMIX Maritime Information Exchange API — Equipment. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/xml/equipmentdata-asmx/getequipmentdetails
+      name: xml-equipmentdata-asmx-getequipmentdetails
+      description: REST surface for xml-EquipmentData.asmx-getEquipmentDetails.
+      operations:
+      - method: GET
+        name: getequipmentdetails
+        description: Get Equipment Certification Details
+        call: cgmix-maritime-information-exchange-equipment.getequipmentdetails
+        with:
+          EquipmentId: rest.EquipmentId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cgmix-maritime-information-exchange-equipment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CGMIX Maritime Information Exchange API — Equipment. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: get-equipment-certification-details
+      description: Get Equipment Certification Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cgmix-maritime-information-exchange-equipment.getequipmentdetails
+      with:
+        EquipmentId: tools.EquipmentId
+      outputParameters:
+      - type: object
+        mapping: $.
