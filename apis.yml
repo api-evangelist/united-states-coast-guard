@@ -1,5 +1,8 @@
 aid: united-states-coast-guard
 url: https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/apis.yml
+common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/uscoastguard
 apis:
 - aid: united-states-coast-guard:cgmix-maritime-information-exchange
   name: CGMIX Maritime Information Exchange API
