@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CGMIX Maritime Information Exchange API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vessel Documentation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Vessel Documentation Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/VDS/SearchAndReturn/Search.aspx",
+            "params": [
+              {
+                "name": "vsnm",
+                "value": "SEA EAGLE",
+                "type": "query",
+                "description": "Vessel name (partial match supported)"
+              },
+              {
+                "name": "offn",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official number assigned by USCG"
+              },
+              {
+                "name": "hin",
+                "value": "ABC12345D101",
+                "type": "query",
+                "description": "Hull Identification Number"
+              }
+            ]
+          },
+          "docs": "Search the National Vessel Documentation Center (NVDC) for documented vessels by vessel name, official number, or hull identification number."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Port State Information",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Vessel Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselSummaryXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of vessel information from the Port State Information Exchange (PSIX) system by official vessel number."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Particulars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselParticularsXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed vessel particulars including dimensions, tonnage, and technical specifications."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselCasesXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve Port State Control inspection cases associated with a vessel, including deficiencies and operational controls."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Deficiencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselDeficienciesXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve documented deficiencies found during Port State Control inspections for a specific vessel."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselDocumentsXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of certificates and documents associated with a vessel, including statutory certificates, endorsements, and permits."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Equipment Certification Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/EquipmentData.asmx/getEquipmentDetails",
+            "params": [
+              {
+                "name": "EquipmentId",
+                "value": "160.002/3",
+                "type": "query",
+                "description": "USCG equipment certification ID"
+              }
+            ]
+          },
+          "docs": "Retrieve details about USCG-approved marine equipment by equipment ID, including approval status, manufacturer, model, and certification scope."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incident Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Incident Investigation Referral",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/IIRData.asmx/getIIRReferralForEnforcementActionXMLString",
+            "params": [
+              {
+                "name": "ActivityId",
+                "value": "12345",
+                "type": "query",
+                "description": "Marine casualty investigation activity identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve Incident Investigation Report (IIR) referral for enforcement action data by activity ID from marine casualty investigations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

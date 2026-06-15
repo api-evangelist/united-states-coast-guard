@@ -1,0 +1,773 @@
+{
+  "item": [
+    {
+      "id": "7c96770f-4154-45c2-8e8b-5e91149fb46e",
+      "name": "Vessel Documentation",
+      "description": {
+        "content": "National Vessel Documentation Center vessel records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ac4c9c4-1eea-4603-97b6-b61e1ae9904d",
+          "name": "Search Vessel Documentation Status",
+          "request": {
+            "name": "Search Vessel Documentation Status",
+            "description": {
+              "content": "Search the National Vessel Documentation Center (NVDC) for documented vessels by vessel name, official number, or hull identification number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "VDS",
+                "SearchAndReturn",
+                "Search.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vsnm",
+                  "value": "<string>",
+                  "description": "Vessel name (partial match supported)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offn",
+                  "value": "<string>",
+                  "description": "Official number assigned by USCG"
+                },
+                {
+                  "disabled": false,
+                  "key": "hin",
+                  "value": "<string>",
+                  "description": "Hull Identification Number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9ba49be-30f4-483b-8444-1b733c0731e1",
+              "name": "Vessel documentation search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "VDS",
+                    "SearchAndReturn",
+                    "Search.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vsnm",
+                      "value": "SEA EAGLE"
+                    },
+                    {
+                      "key": "offn",
+                      "value": "1234567"
+                    },
+                    {
+                      "key": "hin",
+                      "value": "ABC12345D101"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "55c037bf-4392-4bb7-a3ae-584b8b55e583",
+      "name": "Port State Information",
+      "description": {
+        "content": "Port State Information Exchange vessel safety data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca23d133-bc64-47a1-ad49-3d3db464bb66",
+          "name": "Get Vessel Summary",
+          "request": {
+            "name": "Get Vessel Summary",
+            "description": {
+              "content": "Retrieve a summary of vessel information from the Port State Information Exchange (PSIX) system by official vessel number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "PSIXData.asmx",
+                "getVesselSummaryXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "VesselID",
+                  "value": "<string>",
+                  "description": "(Required) Official vessel number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8244423c-0642-48b4-adf5-585793c0cf30",
+              "name": "XML document containing vessel summary data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "PSIXData.asmx",
+                    "getVesselSummaryXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VesselID",
+                      "value": "1234567"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97eb07e1-aab5-4dcc-a5ae-d4388d91caeb",
+          "name": "Get Vessel Particulars",
+          "request": {
+            "name": "Get Vessel Particulars",
+            "description": {
+              "content": "Retrieve detailed vessel particulars including dimensions, tonnage, and technical specifications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "PSIXData.asmx",
+                "getVesselParticularsXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "VesselID",
+                  "value": "<string>",
+                  "description": "(Required) Official vessel number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c912e648-502b-44fe-a66d-ef6333c16a69",
+              "name": "XML document containing vessel particulars",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "PSIXData.asmx",
+                    "getVesselParticularsXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VesselID",
+                      "value": "1234567"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c075efb-bd83-4e63-a4d0-b61d16fac4b4",
+          "name": "Get Vessel Cases",
+          "request": {
+            "name": "Get Vessel Cases",
+            "description": {
+              "content": "Retrieve Port State Control inspection cases associated with a vessel, including deficiencies and operational controls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "PSIXData.asmx",
+                "getVesselCasesXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "VesselID",
+                  "value": "<string>",
+                  "description": "(Required) Official vessel number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3df49f85-3e2f-4374-be8b-446ee7f1b046",
+              "name": "XML document containing vessel inspection cases",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "PSIXData.asmx",
+                    "getVesselCasesXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VesselID",
+                      "value": "1234567"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0c60be7-b72e-4e90-a8c0-bf97ee3ec200",
+          "name": "Get Vessel Deficiencies",
+          "request": {
+            "name": "Get Vessel Deficiencies",
+            "description": {
+              "content": "Retrieve documented deficiencies found during Port State Control inspections for a specific vessel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "PSIXData.asmx",
+                "getVesselDeficienciesXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "VesselID",
+                  "value": "<string>",
+                  "description": "(Required) Official vessel number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b0b29b5-bae4-4174-85ff-b35f0638c0be",
+              "name": "XML document containing vessel deficiency records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "PSIXData.asmx",
+                    "getVesselDeficienciesXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VesselID",
+                      "value": "1234567"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e63a4f0b-deb3-4c23-b443-4b02f1eb54cf",
+          "name": "Get Vessel Documents",
+          "request": {
+            "name": "Get Vessel Documents",
+            "description": {
+              "content": "Retrieve a list of certificates and documents associated with a vessel, including statutory certificates, endorsements, and permits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "PSIXData.asmx",
+                "getVesselDocumentsXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "VesselID",
+                  "value": "<string>",
+                  "description": "(Required) Official vessel number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb0ba169-8225-45d2-9e44-2d91993497b5",
+              "name": "XML document containing vessel certificates and documents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "PSIXData.asmx",
+                    "getVesselDocumentsXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VesselID",
+                      "value": "1234567"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "58635ff0-fd6e-40b2-8aad-7efd5b4c9546",
+      "name": "Equipment",
+      "description": {
+        "content": "USCG approved equipment certification data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "987731bb-e9b7-4517-9341-48dcbf026136",
+          "name": "Get Equipment Certification Details",
+          "request": {
+            "name": "Get Equipment Certification Details",
+            "description": {
+              "content": "Retrieve details about USCG-approved marine equipment by equipment ID, including approval status, manufacturer, model, and certification scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "EquipmentData.asmx",
+                "getEquipmentDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "EquipmentId",
+                  "value": "<string>",
+                  "description": "(Required) USCG equipment certification ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce11e351-2de2-47bd-91de-8cf1f9986b1c",
+              "name": "XML document containing equipment certification details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "EquipmentData.asmx",
+                    "getEquipmentDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "EquipmentId",
+                      "value": "160.002/3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e7030d68-d800-4607-abe5-eee6a45c3748",
+      "name": "Incident Reports",
+      "description": {
+        "content": "Incident Investigation Report data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b51724a7-e99f-487e-9254-0df9d1b045e3",
+          "name": "Get Incident Investigation Referral",
+          "request": {
+            "name": "Get Incident Investigation Referral",
+            "description": {
+              "content": "Retrieve Incident Investigation Report (IIR) referral for enforcement action data by activity ID from marine casualty investigations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "IIRData.asmx",
+                "getIIRReferralForEnforcementActionXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ActivityId",
+                  "value": "<string>",
+                  "description": "(Required) Marine casualty investigation activity identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "380fd857-5c1f-4699-8a42-740e409ab533",
+              "name": "XML document containing incident investigation referral data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "IIRData.asmx",
+                    "getIIRReferralForEnforcementActionXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ActivityId",
+                      "value": "12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cgmix.uscg.mil",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ada20b8f-5afb-4e83-a8e6-51ecfd4f0347",
+    "name": "CGMIX Maritime Information Exchange API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.\n\nContact Support:\n Name: U.S. Coast Guard CGMIX",
+      "type": "text/plain"
+    }
+  }
+}
