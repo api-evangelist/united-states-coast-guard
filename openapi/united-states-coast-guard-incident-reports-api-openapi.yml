@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: CGMIX Maritime Information Exchange Equipment Incident Reports API
+  description: The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.
+  version: 1.0.0
+  contact:
+    name: U.S. Coast Guard CGMIX
+    url: https://cgmix.uscg.mil/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+- url: https://cgmix.uscg.mil
+  description: CGMIX Production Server
+tags:
+- name: Incident Reports
+  description: Incident Investigation Report data
+paths:
+  /xml/IIRData.asmx/getIIRReferralForEnforcementActionXMLString:
+    get:
+      operationId: getIncidentInvestigationReferral
+      summary: Get Incident Investigation Referral
+      description: Retrieve Incident Investigation Report (IIR) referral for enforcement action data by activity ID from marine casualty investigations.
+      tags:
+      - Incident Reports
+      parameters:
+      - name: ActivityId
+        in: query
+        description: Marine casualty investigation activity identifier
+        required: true
+        schema:
+          type: string
+        example: '12345'
+      responses:
+        '200':
+          description: XML document containing incident investigation referral data
+          content:
+            text/xml:
+              schema:
+                type: string

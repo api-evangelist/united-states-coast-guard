@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: CGMIX Maritime Information Exchange Equipment Port State Information API
+  description: The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.
+  version: 1.0.0
+  contact:
+    name: U.S. Coast Guard CGMIX
+    url: https://cgmix.uscg.mil/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+- url: https://cgmix.uscg.mil
+  description: CGMIX Production Server
+tags:
+- name: Port State Information
+  description: Port State Information Exchange vessel safety data
+paths:
+  /xml/PSIXData.asmx/getVesselSummaryXMLString:
+    get:
+      operationId: getVesselSummary
+      summary: Get Vessel Summary
+      description: Retrieve a summary of vessel information from the Port State Information Exchange (PSIX) system by official vessel number.
+      tags:
+      - Port State Information
+      parameters:
+      - name: VesselID
+        in: query
+        description: Official vessel number
+        required: true
+        schema:
+          type: string
+        example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel summary data
+          content:
+            text/xml:
+              schema:
+                type: string
+  /xml/PSIXData.asmx/getVesselParticularsXMLString:
+    get:
+      operationId: getVesselParticulars
+      summary: Get Vessel Particulars
+      description: Retrieve detailed vessel particulars including dimensions, tonnage, and technical specifications.
+      tags:
+      - Port State Information
+      parameters:
+      - name: VesselID
+        in: query
+        description: Official vessel number
+        required: true
+        schema:
+          type: string
+        example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel particulars
+          content:
+            text/xml:
+              schema:
+                type: string
+  /xml/PSIXData.asmx/getVesselCasesXMLString:
+    get:
+      operationId: getVesselCases
+      summary: Get Vessel Cases
+      description: Retrieve Port State Control inspection cases associated with a vessel, including deficiencies and operational controls.
+      tags:
+      - Port State Information
+      parameters:
+      - name: VesselID
+        in: query
+        description: Official vessel number
+        required: true
+        schema:
+          type: string
+        example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel inspection cases
+          content:
+            text/xml:
+              schema:
+                type: string
+  /xml/PSIXData.asmx/getVesselDeficienciesXMLString:
+    get:
+      operationId: getVesselDeficiencies
+      summary: Get Vessel Deficiencies
+      description: Retrieve documented deficiencies found during Port State Control inspections for a specific vessel.
+      tags:
+      - Port State Information
+      parameters:
+      - name: VesselID
+        in: query
+        description: Official vessel number
+        required: true
+        schema:
+          type: string
+        example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel deficiency records
+          content:
+            text/xml:
+              schema:
+                type: string
+  /xml/PSIXData.asmx/getVesselDocumentsXMLString:
+    get:
+      operationId: getVesselDocuments
+      summary: Get Vessel Documents
+      description: Retrieve a list of certificates and documents associated with a vessel, including statutory certificates, endorsements, and permits.
+      tags:
+      - Port State Information
+      parameters:
+      - name: VesselID
+        in: query
+        description: Official vessel number
+        required: true
+        schema:
+          type: string
+        example: '1234567'
+      responses:
+        '200':
+          description: XML document containing vessel certificates and documents
+          content:
+            text/xml:
+              schema:
+                type: string

@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: CGMIX Maritime Information Exchange Equipment Vessel Documentation API
+  description: The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.
+  version: 1.0.0
+  contact:
+    name: U.S. Coast Guard CGMIX
+    url: https://cgmix.uscg.mil/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+- url: https://cgmix.uscg.mil
+  description: CGMIX Production Server
+tags:
+- name: Vessel Documentation
+  description: National Vessel Documentation Center vessel records
+paths:
+  /VDS/SearchAndReturn/Search.aspx:
+    get:
+      operationId: searchVesselDocumentation
+      summary: Search Vessel Documentation Status
+      description: Search the National Vessel Documentation Center (NVDC) for documented vessels by vessel name, official number, or hull identification number.
+      tags:
+      - Vessel Documentation
+      parameters:
+      - name: vsnm
+        in: query
+        description: Vessel name (partial match supported)
+        required: false
+        schema:
+          type: string
+        example: SEA EAGLE
+      - name: offn
+        in: query
+        description: Official number assigned by USCG
+        required: false
+        schema:
+          type: string
+        example: '1234567'
+      - name: hin
+        in: query
+        description: Hull Identification Number
+        required: false
+        schema:
+          type: string
+        example: ABC12345D101
+      responses:
+        '200':
+          description: Vessel documentation search results
+          content:
+            text/html:
+              schema:
+                type: string
