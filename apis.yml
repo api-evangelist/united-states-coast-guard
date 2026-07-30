@@ -8,51 +8,85 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/uscoastguard
 apis:
-  - aid: united-states-coast-guard:cgmix-maritime-information-exchange
-    name: CGMIX Maritime Information Exchange API
-    tags:
-      - Maritime
-      - Vessel Documentation
-      - Safety
-      - Federal Government
-    humanURL: https://cgmix.uscg.mil/xml/default.aspx
-    baseURL: https://cgmix.uscg.mil
-    properties:
-      - url: https://cgmix.uscg.mil/xml/default.aspx
-        type: Documentation
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/openapi/cgmix-maritime-information-exchange-openapi.yml
-        type: OpenAPI
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml
-        type: SpectralRules
-    description: >-
-      The Coast Guard Maritime Information Exchange (CGMIX) provides XML web services for accessing Coast Guard maritime
-      information including vessel documentation, Port State Information Exchange (PSIX) data, equipment certifications,
-      and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law
-      Enforcement (MISLE) system and is updated weekly.
-    contact:
-      FN: U.S. Coast Guard
-      url: https://cgmix.uscg.mil/
-  - aid: united-states-coast-guard:navcen-ais-vessel-information
-    name: NAVCEN AIS Vessel Information Verification Service
-    tags:
-      - Maritime
-      - AIS
-      - Vessel Tracking
-      - Federal Government
-    humanURL: https://www.navcen.uscg.gov/ais-vivs-home
-    baseURL: https://www.navcen.uscg.gov
-    properties:
-      - url: https://www.navcen.uscg.gov/ais-vivs-home
-        type: Documentation
-      - url: https://www.navcen.uscg.gov/ais-vessel-information-verification-service
-        type: Documentation
-    description: >-
-      The Vessel Information Verification Service (VIVS) is a NAVCEN web service that allows retrieval of a vessel's
-      broadcasted AIS static data, including Maritime Mobile Service Identity (MMSI), call sign, vessel name, official
-      number, dimensions, draft, vessel type, and positioning source. Provided by the U.S. Coast Guard Navigation
-      Center.
+- aid: united-states-coast-guard:navcen-ais-vessel-information
+  name: NAVCEN AIS Vessel Information Verification Service
+  tags:
+  - Maritime
+  - AIS
+  - Vessel Tracking
+  - Federal Government
+  humanURL: https://www.navcen.uscg.gov/ais-vivs-home
+  baseURL: https://www.navcen.uscg.gov
+  properties:
+  - url: https://www.navcen.uscg.gov/ais-vivs-home
+    type: Documentation
+  - url: https://www.navcen.uscg.gov/ais-vessel-information-verification-service
+    type: Documentation
+  description: >-
+    The Vessel Information Verification Service (VIVS) is a NAVCEN web service that allows retrieval of
+    a vessel's broadcasted AIS static data, including Maritime Mobile Service Identity (MMSI), call sign,
+    vessel name, official number, dimensions, draft, vessel type, and positioning source. Provided by
+    the U.S. Coast Guard Navigation Center.
+- aid: united-states-coast-guard:united-states-coast-guard-equipment-api
+  name: United States Coast Guard Equipment API
+  description: USCG approved equipment certification data
+  humanURL: https://cgmix.uscg.mil/xml/default.aspx
+  baseURL: https://cgmix.uscg.mil
+  tags:
+  - Equipment
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-coast-guard-equipment-api-openapi.yml
+  - type: Documentation
+    url: https://cgmix.uscg.mil/xml/default.aspx
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml
+- aid: united-states-coast-guard:united-states-coast-guard-incident-reports-api
+  name: United States Coast Guard Incident Reports API
+  description: Incident Investigation Report data
+  humanURL: https://cgmix.uscg.mil/xml/default.aspx
+  baseURL: https://cgmix.uscg.mil
+  tags:
+  - Incident Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-coast-guard-incident-reports-api-openapi.yml
+  - type: Documentation
+    url: https://cgmix.uscg.mil/xml/default.aspx
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml
+- aid: united-states-coast-guard:united-states-coast-guard-port-state-information-api
+  name: United States Coast Guard Port State Information API
+  description: Port State Information Exchange vessel safety data
+  humanURL: https://cgmix.uscg.mil/xml/default.aspx
+  baseURL: https://cgmix.uscg.mil
+  tags:
+  - Port State Information
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-coast-guard-port-state-information-api-openapi.yml
+  - type: Documentation
+    url: https://cgmix.uscg.mil/xml/default.aspx
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml
+- aid: united-states-coast-guard:united-states-coast-guard-vessel-documentation-api
+  name: United States Coast Guard Vessel Documentation API
+  description: National Vessel Documentation Center vessel records
+  humanURL: https://cgmix.uscg.mil/xml/default.aspx
+  baseURL: https://cgmix.uscg.mil
+  tags:
+  - Vessel Documentation
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-coast-guard-vessel-documentation-api-openapi.yml
+  - type: Documentation
+    url: https://cgmix.uscg.mil/xml/default.aspx
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml
 name: United States Coast Guard
 tags:
   - Federal Government
@@ -61,7 +95,19 @@ tags:
   - Emergency Response
   - Law Enforcement
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/united-states-coast-guard.png
 access: 3rd-Party
 created: '2024-12-03'
 modified: '2026-05-19'
