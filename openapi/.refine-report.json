@@ -1,0 +1,20 @@
+{
+  "provider": "united-states-coast-guard",
+  "sources": [
+    "united-states-coast-guard-equipment-api-openapi.yml",
+    "united-states-coast-guard-incident-reports-api-openapi.yml",
+    "united-states-coast-guard-port-state-information-api-openapi.yml",
+    "united-states-coast-guard-vessel-documentation-api-openapi.yml"
+  ],
+  "outputs": [
+    "united-states-coast-guard-equipment-api-openapi.yml",
+    "united-states-coast-guard-incident-reports-api-openapi.yml",
+    "united-states-coast-guard-port-state-information-api-openapi.yml",
+    "united-states-coast-guard-vessel-documentation-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
