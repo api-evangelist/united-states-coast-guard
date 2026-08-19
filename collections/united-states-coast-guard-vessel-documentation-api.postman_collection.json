@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "70b4ae57-2215-4fee-a85f-05e69c172ff0",
+      "name": "Vessel Documentation",
+      "description": {
+        "content": "National Vessel Documentation Center vessel records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14f7fd5a-5621-446a-888c-ac73435cdf17",
+          "name": "Search Vessel Documentation Status",
+          "request": {
+            "name": "Search Vessel Documentation Status",
+            "description": {
+              "content": "Search the National Vessel Documentation Center (NVDC) for documented vessels by vessel name, official number, or hull identification number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "VDS",
+                "SearchAndReturn",
+                "Search.aspx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vsnm",
+                  "value": "<string>",
+                  "description": "Vessel name (partial match supported)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offn",
+                  "value": "<string>",
+                  "description": "Official number assigned by USCG"
+                },
+                {
+                  "disabled": false,
+                  "key": "hin",
+                  "value": "<string>",
+                  "description": "Hull Identification Number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41934208-eed5-4e27-ba23-c52081be634a",
+              "name": "Vessel documentation search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "VDS",
+                    "SearchAndReturn",
+                    "Search.aspx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vsnm",
+                      "value": "SEA EAGLE"
+                    },
+                    {
+                      "key": "offn",
+                      "value": "1234567"
+                    },
+                    {
+                      "key": "hin",
+                      "value": "ABC12345D101"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cgmix.uscg.mil",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "36383d7f-df24-476c-a995-db1ea42284e3",
+    "name": "CGMIX Maritime Information Exchange Equipment Vessel Documentation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.\n\nContact Support:\n Name: U.S. Coast Guard CGMIX",
+      "type": "text/plain"
+    }
+  }
+}

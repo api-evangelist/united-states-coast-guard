@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CGMIX Maritime Information Exchange Equipment Vessel Documentation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vessel Documentation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Vessel Documentation Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/VDS/SearchAndReturn/Search.aspx",
+            "params": [
+              {
+                "name": "vsnm",
+                "value": "SEA EAGLE",
+                "type": "query",
+                "description": "Vessel name (partial match supported)"
+              },
+              {
+                "name": "offn",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official number assigned by USCG"
+              },
+              {
+                "name": "hin",
+                "value": "ABC12345D101",
+                "type": "query",
+                "description": "Hull Identification Number"
+              }
+            ]
+          },
+          "docs": "Search the National Vessel Documentation Center (NVDC) for documented vessels by vessel name, official number, or hull identification number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

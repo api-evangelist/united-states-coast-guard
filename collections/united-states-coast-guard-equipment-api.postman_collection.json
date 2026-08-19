@@ -1,0 +1,118 @@
+{
+  "item": [
+    {
+      "id": "5912eaf4-2b88-41dd-bde1-cd2870b9d103",
+      "name": "Equipment",
+      "description": {
+        "content": "USCG approved equipment certification data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "518d4357-e04f-43ea-85ac-9da215642cf5",
+          "name": "Get Equipment Certification Details",
+          "request": {
+            "name": "Get Equipment Certification Details",
+            "description": {
+              "content": "Retrieve details about USCG-approved marine equipment by equipment ID, including approval status, manufacturer, model, and certification scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "EquipmentData.asmx",
+                "getEquipmentDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "EquipmentId",
+                  "value": "<string>",
+                  "description": "(Required) USCG equipment certification ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f57f0672-e282-4545-a285-460659da7cff",
+              "name": "XML document containing equipment certification details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "EquipmentData.asmx",
+                    "getEquipmentDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "EquipmentId",
+                      "value": "160.002/3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cgmix.uscg.mil",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ae839db9-658c-4996-8ded-c577ca2031be",
+    "name": "CGMIX Maritime Information Exchange Equipment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.\n\nContact Support:\n Name: U.S. Coast Guard CGMIX",
+      "type": "text/plain"
+    }
+  }
+}

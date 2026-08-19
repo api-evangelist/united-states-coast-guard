@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CGMIX Maritime Information Exchange Equipment Incident Reports API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incident Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Incident Investigation Referral",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/IIRData.asmx/getIIRReferralForEnforcementActionXMLString",
+            "params": [
+              {
+                "name": "ActivityId",
+                "value": "12345",
+                "type": "query",
+                "description": "Marine casualty investigation activity identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve Incident Investigation Report (IIR) referral for enforcement action data by activity ID from marine casualty investigations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

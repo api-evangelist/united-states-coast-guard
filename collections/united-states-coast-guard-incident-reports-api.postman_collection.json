@@ -1,0 +1,118 @@
+{
+  "item": [
+    {
+      "id": "9a5b19a5-ff87-4033-a5eb-c1bbf70d9109",
+      "name": "Incident Reports",
+      "description": {
+        "content": "Incident Investigation Report data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4be7a47b-3c5c-4e30-9475-c32d9726cc99",
+          "name": "Get Incident Investigation Referral",
+          "request": {
+            "name": "Get Incident Investigation Referral",
+            "description": {
+              "content": "Retrieve Incident Investigation Report (IIR) referral for enforcement action data by activity ID from marine casualty investigations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xml",
+                "IIRData.asmx",
+                "getIIRReferralForEnforcementActionXMLString"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ActivityId",
+                  "value": "<string>",
+                  "description": "(Required) Marine casualty investigation activity identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f7c354b-99bc-45b7-80b1-581c22566937",
+              "name": "XML document containing incident investigation referral data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xml",
+                    "IIRData.asmx",
+                    "getIIRReferralForEnforcementActionXMLString"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ActivityId",
+                      "value": "12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cgmix.uscg.mil",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ef6db246-8fed-4b1c-960a-05af249f9a72",
+    "name": "CGMIX Maritime Information Exchange Equipment Incident Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Coast Guard Maritime Information Exchange (CGMIX) provides access to U.S. Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) vessel data, equipment certification listings, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.\n\nContact Support:\n Name: U.S. Coast Guard CGMIX",
+      "type": "text/plain"
+    }
+  }
+}

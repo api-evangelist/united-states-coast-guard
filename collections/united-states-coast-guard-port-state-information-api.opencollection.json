@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CGMIX Maritime Information Exchange Equipment Port State Information API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Port State Information",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Vessel Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselSummaryXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of vessel information from the Port State Information Exchange (PSIX) system by official vessel number."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Particulars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselParticularsXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed vessel particulars including dimensions, tonnage, and technical specifications."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselCasesXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve Port State Control inspection cases associated with a vessel, including deficiencies and operational controls."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Deficiencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselDeficienciesXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve documented deficiencies found during Port State Control inspections for a specific vessel."
+        },
+        {
+          "info": {
+            "name": "Get Vessel Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cgmix.uscg.mil/xml/PSIXData.asmx/getVesselDocumentsXMLString",
+            "params": [
+              {
+                "name": "VesselID",
+                "value": "1234567",
+                "type": "query",
+                "description": "Official vessel number"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of certificates and documents associated with a vessel, including statutory certificates, endorsements, and permits."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
