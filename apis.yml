@@ -14,6 +14,11 @@ apis:
   - Maritime
   - AIS
   - Vessel Tracking
+  - Federal-Government
+  tags_raw:
+  - Maritime
+  - AIS
+  - Vessel Tracking
   - Federal Government
   humanURL: https://www.navcen.uscg.gov/ais-vivs-home
   baseURL: https://www.navcen.uscg.gov
@@ -89,6 +94,12 @@ apis:
       https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml
 name: United States Coast Guard
 tags:
+  - Federal-Government
+  - Maritime Safety
+  - Vessel Documentation
+  - Emergency Response
+  - Law Enforcement
+tags_raw:
   - Federal Government
   - Maritime Safety
   - Vessel Documentation
