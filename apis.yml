@@ -1,6 +1,12 @@
 aid: united-states-coast-guard
 url: https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/apis.yml
 common:
+  - type: Plans
+    url: plans/united-states-coast-guard-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/united-states-coast-guard-rate-limits.yml
+  - type: FinOps
+    url: finops/united-states-coast-guard-finops.yml
   - type: AgenticAccess
     url: agentic-access/united-states-coast-guard-agentic-access.yml
   - type: DomainSecurity
