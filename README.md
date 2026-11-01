@@ -1,4 +1,4 @@
-# United States Coast Guard (united-states-coast-guard)
+# United States Coast Guard
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,76 +66,118 @@
 
 The United States Coast Guard is a branch of the military responsible for enforcing maritime laws, protecting the nation's waterways and coastlines, and ensuring the safety and security of seafarers. They conduct search and rescue operations, respond to environmental disasters, combat illegal drug trafficking and immigration, and conduct security patrols to thwart terrorism threats. The USCG provides public APIs and data services through the CGMIX Maritime Information Exchange, the Navigation Center (NAVCEN), and the National Vessel Documentation Center (NVDC).
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/apis.yml)
+**Areas:** Federal Government · Maritime Safety · Vessel Documentation · Emergency Response · Law Enforcement
 
-## Scope
+## United States Coast Guard on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for United States Coast Guard is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/united-states-coast-guard/](https://apis.io/providers/united-states-coast-guard/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Federal Government
-- Maritime Safety
-- Vessel Documentation
-- Emergency Response
-- Law Enforcement
+- [NAVCEN AIS Vessel Information Verification Service](https://apis.io/apis/united-states-coast-guard/navcen-ais-vessel-information/) — The Vessel Information Verification Service (VIVS) is a NAVCEN web service that allows retrieval of a vessel's broadcasted AIS static data, including…
+- [United States Coast Guard Equipment API](https://apis.io/apis/united-states-coast-guard/united-states-coast-guard-equipment-api/) — USCG approved equipment certification data
+- [United States Coast Guard Incident Reports API](https://apis.io/apis/united-states-coast-guard/united-states-coast-guard-incident-reports-api/) — Incident Investigation Report data
+- [United States Coast Guard Port State Information API](https://apis.io/apis/united-states-coast-guard/united-states-coast-guard-port-state-information-api/) — Port State Information Exchange vessel safety data
+- [United States Coast Guard Vessel Documentation API](https://apis.io/apis/united-states-coast-guard/united-states-coast-guard-vessel-documentation-api/) — National Vessel Documentation Center vessel records
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-12-03
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CGMIX Maritime Information Exchange API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Coast Guard Maritime Information Exchange (CGMIX) provides XML web services for accessing Coast Guard maritime information including vessel documentation, Port State Information Exchange (PSIX) data, equipment certifications, and Incident Investigation Reports (IIR). Data originates from the Marine Information for Safety and Law Enforcement (MISLE) system and is updated weekly.
+- [United States Coast Guard Agentic Access](https://apis.io/agentic-access/united-states-coast-guard/united-states-coast-guard-agentic-access/)
 
-- **Human URL:** [https://cgmix.uscg.mil/xml/default.aspx](https://cgmix.uscg.mil/xml/default.aspx)
-- **Base URL:** `https://cgmix.uscg.mil`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Maritime
-- Vessel Documentation
-- Safety
-- Federal Government
+- [CGMIX Vessel](https://apis.io/schemas/united-states-coast-guard/cgmix-vessel/)
+- [CGMIX Vessel Inspection Case](https://apis.io/schemas/united-states-coast-guard/cgmix-vessel-case/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://cgmix.uscg.mil/xml/default.aspx)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/openapi/cgmix-maritime-information-exchange-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/united-states-coast-guard/refs/heads/main/rules/cgmix-maritime-information-exchange-rules.yml)
-- [Postman Collection](collections/cgmix-maritime-information-exchange.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cgmix-maritime-information-exchange.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### NAVCEN AIS Vessel Information Verification Service
+- [Cgmix Vessel Structure](https://apis.io/json-structure/united-states-coast-guard/cgmix-vessel-structure/)
 
-The Vessel Information Verification Service (VIVS) is a NAVCEN web service that allows retrieval of a vessel's broadcasted AIS static data, including Maritime Mobile Service Identity (MMSI), call sign, vessel name, official number, dimensions, draft, vessel type, and positioning source. Provided by the U.S. Coast Guard Navigation Center.
+#### JSON-LD (1)
 
-- **Human URL:** [https://www.navcen.uscg.gov/ais-vivs-home](https://www.navcen.uscg.gov/ais-vivs-home)
-- **Base URL:** `https://www.navcen.uscg.gov`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [United States Coast Guard Context](https://apis.io/jsonld/united-states-coast-guard/united-states-coast-guard-context/)
 
-- Maritime
-- AIS
-- Vessel Tracking
-- Federal Government
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://www.navcen.uscg.gov/ais-vivs-home)
-- [Documentation](https://www.navcen.uscg.gov/ais-vessel-information-verification-service)
-- [Postman Collection](collections/cgmix-maritime-information-exchange.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cgmix-maritime-information-exchange.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [United States Coast Guard Vocabulary](https://apis.io/vocabularies/united-states-coast-guard/united-states-coast-guard-vocabulary/)
 
-## Common Properties
+#### Examples (3)
 
-- [LinkedIn](https://www.linkedin.com/company/uscoastguard)
+Example requests and responses.
 
-## Maintainers
+- [Cgmix Get Equipment Details Example](https://apis.io/examples/united-states-coast-guard/cgmix-get-equipment-details-example/)
+- [Cgmix Get Vessel Cases Example](https://apis.io/examples/united-states-coast-guard/cgmix-get-vessel-cases-example/)
+- [Cgmix Get Vessel Summary Example](https://apis.io/examples/united-states-coast-guard/cgmix-get-vessel-summary-example/)
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [CGMIX Maritime Information Exchange API](https://apis.io/collections/united-states-coast-guard/open-cgmix-maritime-information-exchange/)
+- [CGMIX Maritime Information Exchange Equipment API](https://apis.io/collections/united-states-coast-guard/open-united-states-coast-guard-equipment-api/)
+- [CGMIX Maritime Information Exchange Equipment Incident Reports API](https://apis.io/collections/united-states-coast-guard/open-united-states-coast-guard-incident-reports-api/)
+- [CGMIX Maritime Information Exchange Equipment Port State Information API](https://apis.io/collections/united-states-coast-guard/open-united-states-coast-guard-port-state-information-api/)
+- [CGMIX Maritime Information Exchange Equipment Vessel Documentation API](https://apis.io/collections/united-states-coast-guard/open-united-states-coast-guard-vessel-documentation-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [United States Coast Guard — cgmix maritime information exchange rules](https://apis.io/rules/united-states-coast-guard/cgmix-maritime-information-exchange-rules/)
+- [United States Coast Guard — jsonschema rules](https://apis.io/rules/united-states-coast-guard/united-states-coast-guard-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [United States Coast Guard Domain Security](https://apis.io/security/united-states-coast-guard/united-states-coast-guard-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [United States Coast Guard Plans Pricing](https://apis.io/plans/united-states-coast-guard/united-states-coast-guard-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [United States Coast Guard Rate Limits](https://apis.io/rate-limits/united-states-coast-guard/united-states-coast-guard-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [United States Coast Guard Finops](https://apis.io/finops/united-states-coast-guard/united-states-coast-guard-finops/)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for United States Coast Guard: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/united-states-coast-guard/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
